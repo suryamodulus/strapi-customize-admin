@@ -1,5 +1,5 @@
 ### Strapi-Customize-Admin
-#### This library allows to customize and white label Strapi Admin panel
+#### This library allows you to customize and white label Strapi Admin panel
 
 ##### Installation
 ```
