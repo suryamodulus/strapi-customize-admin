@@ -10,7 +10,8 @@ OR
 yarn add strapi-customize-admin
 ```
 ##### Usage
-Add as postbuild script in your package.json. Ex:
+Add it as a postbuild script in your package.json. 
+Ex:
 ```
 postbuild: "strapi-customize-admin"
 ```
