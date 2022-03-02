@@ -1,0 +1,30 @@
+const path = require("path");
+const fs = require("fs");
+
+function getCustomTitle(str) {
+  return (
+    str.replace(/-/g, " ").replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }) + " - Panel"
+  );
+}
+
+function replaceFileContents(filePath, originalString, newString) {
+  const data = fs.readFileSync(filePath, "utf8");
+  const regex = new RegExp(originalString, "g");
+  const result = data.replace(regex, newString);
+  fs.writeFileSync(filePath, result, "utf8");
+}
+
+function renameAdminTitle() {
+  const dir = process.cwd();
+  const buildIndexHtmlFile = path.resolve(dir, "build", "index.html");
+  const packageJson = fs.readFileSync(path.join(dir, "package.json"));
+  const packageJsonData = JSON.parse(packageJson);
+  const customAdminTitle = getCustomTitle(packageJsonData.name);
+  replaceFileContents(buildIndexHtmlFile, "Strapi Admin", customAdminTitle);
+}
+
+module.exports = {
+  renameAdminTitle,
+};

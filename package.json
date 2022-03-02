@@ -2,12 +2,17 @@
   "name": "strapi-customize-admin",
   "version": "0.1.0",
   "description": "Strapi Customize admin",
-  "main": "lib/index.js"
+  "main": "./lib/index.js",
+  "bin":  "./lib/index.js",
   "dependencies": {
-    "merge-dirs": "^0.2.1",
+    "merge-dirs": "^0.2.1"
   },
   "author": {
     "name": "Surya T"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.x.x",
+    "npm": ">=6.0.0"
+  }
 }
